@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Game</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/reset.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Inline|Codystar|Monoton" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/style2.css"/>
+    <script
+    type = "text/javascript" 
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <div class = "container">
+        <div class= "winner">
+            <div class="alert alert-success" role="alert">
+                    <h4 class="alert-heading">YOU WON!!!</h4>
+                    <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+                    <hr>
+                    <p class="mb-0">CLICK START TO PLAY ANOTHER ROUND</p>
+                  </div>
+                </div>
+            <div class ="loser">
+            <div class="alert alert-success" role="alert">
+                        <h4 class="alert-heading">Sorry you lost! </h4>
+                        <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+                        <hr>
+                        <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+                      </div>
+                    </div>
+        <div class = "scoreboard">
+            <!--score  / progress bar / target -->
+            <div class ="row">
+                <div class="col-md-3">
+                        <div id="user-score"></div>
+                </div>
+                <div class="col-md-6">
+                        <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">#score</div>
+                              </div>
+                </div>
+                <div class="col-md-3">
+                    <div id="tar-score"></div>
+                </div>
+            </div>
+        <!-- wins / losses -->
+        <div class ="row">
+            <div class = "col-md-4">
+                <div id="wins"></div>
+            </div>
+            <div class = "col-md-4">
+                    <button type="button" class="btn btn-light">Start!</button>
+            </div>
+            <div class = "col-md-4">
+                <div id="losses"></div>
+            </div>
+        </div>
+        </div>
+    <div class = "hoops">
+        <div class = "row">
+            <div class = "col-md-4">
+                    <div id="basket1" class="basket"><img id ="hoop1" class="hoop" src="./assets/images/whitehoop.png"></div>
+            </div>
+            <div class = "col-md-4">
+                    <div id="basket2" class="basket"> <img id="hoop2" class="hoop" src="./assets/images/whitehoop.png"></div>
+            </div>
+            <div class = "col-md-4">
+                    <div id="basket3" class="basket"><img id="hoop3" class="hoop" src="./assets/images/whitehoop.png"></div>
+            </div>
+            </div>
+        </div>
+    </div>
+        <div class = "row">
+            <div class = "col-md-12">
+                    <img id="game-ball" src="./assets/images/bball.png">
+            </div>
+        </div>
+    </div>
+    
+
+    <!--linking javascript file-->
+<script src="./assets/javascript/game.js"></script>
+</body>
+</html>
