@@ -50,6 +50,7 @@ h1{
     /* font-family: Bungee Inline; */
     text-transform: uppercase;
     color: #8db1da;
+    letter-spacing: .5rem;
 }
 
 .lead{
@@ -62,7 +63,7 @@ p{
     font-family: Codystar;
 }
 .btn-group-lg>.btn, .btn-lg {
-    padding: .5rem 1rem;
+    padding: 3.5rem 8rem;
     font-size: 1.25rem;
     line-height: 1.5;
     border-radius: .3rem;
@@ -72,6 +73,7 @@ p{
     font-family: codystar;
     font-weight: bold;
     text-transform: uppercase;
+    z-index: 2;
 }
 #score_help{
     text-align: center;
@@ -105,6 +107,7 @@ img#ball{
     margin-right: 43px;
     margin-top: -200px;
     height: 43%;
+    z-index: 1;
     /* padding: 20px;
     background-color:rgba(200, 54, 54, 0.5); */
 

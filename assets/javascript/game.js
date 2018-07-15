@@ -1,6 +1,6 @@
 var ball =   $("#ball");
 var start = $(".btn");
-
+var audio = new Audio("assets/audio/startgame2.mp3");
 console.log(start);
 
  $(document).ready(function(){
@@ -15,18 +15,17 @@ function Bounce(ele, times, distance, speed) {
       }, speed);
   }        
 }
-var hoops = $(".hoop");
+
 
 
 //home page start button 
 
 $(start).on("click", function(){
   Bounce($(ball), 3, '50px', 200);
+  audio.play();
   setTimeout(function(){
     $(location).attr("href", "./game.html");
-  }, 2000);
-  $(".winner").hide(".alert");
-  $(".loser").hide(".alert");
+  }, 10000);
 
 });
 
@@ -40,14 +39,13 @@ $(start).on("click", function(){
 
 $(".winner").hide(".alert");
 $(".loser").hide(".alert");
-
+var hoops = $(".hoop");
 var gamebb = $("#game-ball")
-var hoop1;
-var hoop2;
-var hoop3; 
+
 var hoopMin = 1;
 var hoopMax = 3;
-var hoopVal =Math.floor(Math.random() * 4) +1;
+var hoopOpt = [];
+var arraySize = 4;
 var wins = 0;
 console.log(wins);
 var losses = 0; 
@@ -74,12 +72,39 @@ $("#losses").text("Losses: " + losses);
 $(".progress-bar").text(score);
 $(".progress-bar").attr("style", "width: "+ percent);
 
+// values to hoops 
+for (i=0; i<hoops.length; i++);{
+  var hoopVal =Math.floor(Math.random() * 4) +1;
+  console.log(hoopVal);
+  hoops[0].setAttribute("src","./assets/images/redhoop.png");
+  hoops[1].setAttribute("src","./assets/images/yellowhoop.png");
+  hoops[2].setAttribute("src","./assets/images/ltbluehoop.png");
+  var imgHoop = $("<img>");
+  var hoop1 = hoopVal[i];
+  var hoop2 = hoopVal[i];
+  var hoop3= hoopVal[i];
+
+  // var hoops = $("<div>");
+  // hoops.attr({
+  //     "class": 'crystal',
+  //     "dataRandom": random
+  // });
+
+  console.log(hoops[0]);
+  console.log(hoops[1]);
+  console.log(hoops[2]);
+  console.log(imgHoop);
+}
+  
+      
+
 // hide all alerts 
 $(".winner").hide(".alert");
 $(".loser").hide(".alert");
 //game start function 
 var start2 = $(".btn");
 
+/// original idea scrapped *** 
 $(start2).on("click", function(){
     
       for (i=0; i<hoops.length; i++);
@@ -144,22 +169,22 @@ gamebb.click(function(){
 
   // Move Buttons (Keyboard Down)
   case 40:
-    gamebb.animate({ top: "+=200px" }, "normal");
+    gamebb.animate({ top: "+=200px" }, "fast");
     break;
 
     // Move Buttons (Keyboard Right)
   case 39:
-    gamebb.animate({ left: "+=200px" }, "normal");
+    gamebb.animate({ left: "+=200px" }, "fast");
     break;
 
     // Move Buttons (Keyboard Up)
   case 38:
-    gamebb.animate({ top: "-=200px" }, "normal");
+    gamebb.animate({ top: "-=200px" }, "fast");
     break;
 
     // Move Buttons (Keyboard Left)
   case 37:
-    gamebb.animate({ left: "-=200px" }, "normal");
+    gamebb.animate({ left: "-=200px" }, "fast");
     break;
 
   default:
@@ -171,7 +196,7 @@ gamebb.click(function(){
 // <!--test space key function-->
       $(document).keydown(function(e) {
         if (e.keyCode == '32') {
-          Bounce($(gamebb), 3, '50px', 200);
+          Bounce($(gamebb), 1, '350px', 200);
         }
       });
 

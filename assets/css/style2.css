@@ -135,17 +135,11 @@ img#game-ball{
     margin-top: 78px;
     margin-left: 39%;
     height: 64%;
+    position: relative;
     /* margin: 200px 0px 0px 0px; */
     /* padding: 20px;
     background-color:rgba(200, 54, 54, 0.5); */
 
-}
-
-.ball2{
-    background-color: red;
-    width: 100px;
-    height: 100px;
-    top: 100px;
 }
 
 /* 
