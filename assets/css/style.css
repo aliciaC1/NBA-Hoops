@@ -11,6 +11,7 @@ body{
     background-position: center;
     background-repeat: no-repeat;
     margin-top: 10px;
+    background-attachment: fixed;
 
     
 }
@@ -19,6 +20,7 @@ body{
     width: 90%;
     /* height: 90%; */
     margin: auto;
+    top: 15px;
     /* position: relative; */
     /* overflow: hidden; */
     /* background-color: bege; */
@@ -27,8 +29,8 @@ body{
 
 .jumbotron{
     float: right;
-    margin-top: 120px;
-    margin-right: 93px;
+    margin-top: 28px;
+    margin-right: 82px;
     width: 64%;
     margin-left: 194px;
     background-color: black;
@@ -51,6 +53,7 @@ h1{
     text-transform: uppercase;
     color: #8db1da;
     letter-spacing: .5rem;
+    margin-top: -108px;
 }
 
 .lead{
@@ -63,7 +66,7 @@ p{
     font-family: Codystar;
 }
 .btn-group-lg>.btn, .btn-lg {
-    padding: 3.5rem 8rem;
+    padding: 3.5rem 7rem;
     font-size: 1.25rem;
     line-height: 1.5;
     border-radius: .3rem;
@@ -90,22 +93,11 @@ img.hoop{
     z-index: 100;
 }
 
-#hoop1{
-    left:20%;
-}
-
-#hoop2{
-    left: 40%;
-}
-
-#hoop3{
-    left: 60%;
-}
 
 img#ball{
-    float: right;
-    margin-right: 43px;
-    margin-top: -200px;
+    /* float: right; */
+    margin-right: 23px;
+    margin-top: -340px;
     height: 43%;
     z-index: 1;
     /* padding: 20px;

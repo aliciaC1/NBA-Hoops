@@ -41,8 +41,7 @@ $(start).on("click", function(){
 //game page 
 //define all variables 
 
-$(".winner").hide(".alert");
-$(".loser").hide(".alert");
+
 var hoops = $(".hoop");
 var gamebb = $("#game-ball")
 var hoopMin = 1;
