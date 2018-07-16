@@ -1,11 +1,16 @@
 var ball =   $("#ball");
 var start = $(".btn");
 var audio = new Audio("assets/audio/startgame2.mp3");
+var audioWin = new Audio("assets/audio/wins.mp3");
+var audioLose = new Audio("assets/audio/boo.mp3");
+var audioBall = new Audio ("assets/audio/swoosh2.mp3");
+var audioBall2 = new Audio ("assets/audio/swoosh.mp3");
+var audioBounce = new Audio ("assets/audio/bounce.mp3");
 console.log(start);
 
  $(document).ready(function(){
 
-// bounce function ************NEED TO FIND A WAY TO INDICATE DIRECTION ************
+// bounce function 
 function Bounce(ele, times, distance, speed) {
   for(i=0; i<times; i++) {
       ele.animate({
@@ -15,8 +20,6 @@ function Bounce(ele, times, distance, speed) {
       }, speed);
   }        
 }
-
-
 
 //home page start button 
 
@@ -32,6 +35,7 @@ $(start).on("click", function(){
 // <!--test ball click function ---> 
     ball.click(function(){
       Bounce($(ball), 3, '150px', 200);
+      audioBounce.play();
 });
 
 //game page 
@@ -53,7 +57,7 @@ var score = 0;
 console.log(score);
 var minNum = 10;
 console.log(minNum);
-var maxNum = 40;
+var maxNum = 20;
 console.log(maxNum);
 var target = Math.floor(Math.random() * (maxNum - minNum + 1) ) + minNum;
 console.log(target);
@@ -71,82 +75,7 @@ $("#losses").text("Losses: " + losses);
 $(".progress-bar").text(score);
 $(".progress-bar").attr("style", "width: "+ percent);
 
-// values to hoops 
-for (i=0; i<hoops.length; i++);{
-  var random =Math.floor(Math.random() * 4) +1;
-  console.log(random);
-  hoops.attr("dataValue", hoopOpt[i]);
-
-  console.log(hoopOpt);
-  console.log(hoops[0]);
-  console.log(hoops[1]);
-  console.log(hoops[2]);
-}
-  
-while (hoopOpt.length < arraySize)  {
-  var random = Math.floor(Math.random() * hoopMax) + hoopMin;
-  if (hoopOpt.indexOf(random) == -1) {
-    hoopOpt.push(random);
-  }
-}
-//defining hoops random # values 
-var hoop1 = $("#hoop1");
-var hoop2 = $("#hoop2");
-var hoop3 = $("#hoop3");
-
-hoop1.attr("dataValue", hoopOpt[0]);
-hoop2.attr("dataValue", hoopOpt[1]);
-hoop3.attr("dataValue", hoopOpt[2]);
-
-//game start function 
-var start2 = $(".btn");
-
-/// original idea scrapped *** 
-$(start2).on("click", function(){
-    
-
-    function game(){
-      var target = Math.floor(Math.random() * (maxNum - minNum + 1) ) + minNum;
-      console.log(target);  
-      $("#start-score").text("Target: " + target);
-      score = 0;
-      $("#user-score").text("Score: " + score);
-    };
-
-    
-
-
-});
-
-// // if (hoop1 is selected){
-//   hoop1 + score; 
-//   Bounce($(ball), 1, '300px', 200);
-//  } else if (hoop2 is selected){
-//    hoop 2 + score; 
-//    Bounce($(ball), 1, '300px', 200);
-//  } else (hoop3 is selected){
-//    hoop 3 + score; 
-//    Bounce($(ball), 1, '300px', 200);
-//  };
-
- 
-// }
-// console.log(hoop());
-
-
-
-// if (score == target) {
-//   alert("You Win!!!");
-//   wins +=1;
-//   setTimeout(game, 1000 * 3);
-
-// } else {
-//   (score > target) {
-//     alert("You lose!!! To play again, hit start!");
-//     losses +=1;
-//     setTimeout(game, 1000 * 3);
-//   };
-// };
+// ball functions // 
 
 gamebb.click(function(){
   Bounce($(gamebb), 1, '400px', 200);
@@ -158,12 +87,12 @@ gamebb.click(function(){
 
     // Move Buttons (Keyboard Right)
   case 39:
-    gamebb.animate({ left: "+=200px" }, "fast");
+    gamebb.animate({ left: "+=250px" }, "fast");
     break;
 
     // Move Buttons (Keyboard Left)
   case 37:
-    gamebb.animate({ left: "-=200px" }, "fast");
+    gamebb.animate({ left: "-=250px" }, "fast");
     break;
 
   default:
@@ -175,30 +104,84 @@ gamebb.click(function(){
       $(document).keydown(function(e) {
         if (e.keyCode == '32') {
           Bounce($(gamebb), 1, '350px', 200);
+          audioBall2.play();
         }
       });
 
+// click ball bounce 
+gamebb.click(function(){
+  Bounce($(ball), 3, '150px', 200);
+  audioBall2.play();
+});
+
+//game start function 
+var start2 = $(".btn");
+$(start2).on("click", function(){
+
+//defining hoops random # values 
+  
+while (hoopOpt.length < arraySize)  {
+  var random = Math.floor(Math.random() * hoopMax) + hoopMin;
+  if (hoopOpt.indexOf(random) == -1) {
+    hoopOpt.push(random);
+  }
+}
+var hoop1 = $("#hoop1");
+var hoop2 = $("#hoop2");
+var hoop3 = $("#hoop3");
+
+hoop1.attr("dataValue", hoopOpt[0]);
+hoop2.attr("dataValue", hoopOpt[1]);
+hoop3.attr("dataValue", hoopOpt[2]);
+
+console.log(hoopOpt);
+console.log(hoops[0]);
+console.log(hoops[1]);
+console.log(hoops[2]);
+
+    function game(){
+      var target = Math.floor(Math.random() * (maxNum - minNum + 1) ) + minNum;
+      console.log(target);  
+      $("#start-score").text("Target: " + target);
+      score = 0;
+      $("#user-score").text("Score: " + score);
+    };
+
+});
+
+ hoop1 = parseInt(hoop1);
+ hoop2 = parseInt(hoop2);
+ hoop3 = parseInt(hoop3);
+
+// if (gamebb.css("left" <= "-500px") && (keyPressed.keyCode == 32)){
+//   score + hoop1;
+//   audioBall.play();
+// } else if (gamebb.css("left" = "2px") && (keyPressed.keyCode == 32));{
+//   score + hoop2;
+//   audioBall.play();
+// } else (gamebb.css("left" >= "500px") && (keyPressed.keyCode == 32)); {
+//   score + hoop3;
+//   audioBall.play();
+// }
+
+// console.log(score);
+
+// if (score === target){
+//   alert("You Won!");
+//   wins +=1;
+//   audioWin.play();
+// } else (target < score); {
+//   alert(" You Lost! Play again by clicking the Start Button!");
+//   losses +=1;
+//   audioLose.play();
+// }
+
+
+   
+  
+  
   
   });
 
 
-  //<!--game begins--> 
-
-   
- 
-  //intialize game function 
-  // hoop1 - random value 
-  // hoop 2 - random value 
-  // hoop 3 - random value 
-  // score - players total score through total hoop values - resets to 0 
-  // target - players target score to achieve 
-  // if else statement score == target (alert game wins ) else score > target (alert you lose play again)
-
-// // if else statements 
-//   // jquery function on space key event + left arrow = ball move diagonally left and 
-//   add hoop1 value to score 
-//   // if player hits space key + right arrow = ball move diagnoally right 
-//   add hoop3 value to score 
-//   // if player hits space key + up arrow = ball moves up towards hoop2 and adds hoop2 to score
-//   // 
 

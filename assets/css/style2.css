@@ -111,7 +111,7 @@ p{
     margin: 10px 20px;
     margin-left: -55px;
     width: 90%;
-    
+    z-index: 2;
 
 }
 
@@ -120,6 +120,7 @@ p{
     margin: 10px 20px;
     width: 90%;
     position: relative;
+    z-index: 2;
 }
 
 #hoop3{
@@ -128,18 +129,21 @@ p{
     margin-left: 79px;
     width: 90%;
     position: relative;
+    padding-bottom: 20px;
+    z-index: 2;
 }
 
 
 img#game-ball{
-    margin-top: 78px;
+    bottom: 50px;
     margin-left: 39%;
-    height: 64%;
+    width: 23%;
+    padding: 0;
     position: relative;
     /* margin: 200px 0px 0px 0px; */
     /* padding: 20px;
     background-color:rgba(200, 54, 54, 0.5); */
-
+    z-index: 4;
 }
 
 /* 
