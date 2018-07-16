@@ -41,16 +41,15 @@ $(".winner").hide(".alert");
 $(".loser").hide(".alert");
 var hoops = $(".hoop");
 var gamebb = $("#game-ball")
-
 var hoopMin = 1;
 var hoopMax = 3;
 var hoopOpt = [];
-var arraySize = 4;
+var arraySize = 3;
 var wins = 0;
 console.log(wins);
 var losses = 0; 
 console.log(losses);
-var score = 10;
+var score = 0;
 console.log(score);
 var minNum = 10;
 console.log(minNum);
@@ -74,57 +73,47 @@ $(".progress-bar").attr("style", "width: "+ percent);
 
 // values to hoops 
 for (i=0; i<hoops.length; i++);{
-  var hoopVal =Math.floor(Math.random() * 4) +1;
-  console.log(hoopVal);
-  hoops[0].setAttribute("src","./assets/images/redhoop.png");
-  hoops[1].setAttribute("src","./assets/images/yellowhoop.png");
-  hoops[2].setAttribute("src","./assets/images/ltbluehoop.png");
-  var imgHoop = $("<img>");
-  var hoop1 = hoopVal[i];
-  var hoop2 = hoopVal[i];
-  var hoop3= hoopVal[i];
+  var random =Math.floor(Math.random() * 4) +1;
+  console.log(random);
+  hoops.attr("dataValue", hoopOpt[i]);
 
-  // var hoops = $("<div>");
-  // hoops.attr({
-  //     "class": 'crystal',
-  //     "dataRandom": random
-  // });
-
+  console.log(hoopOpt);
   console.log(hoops[0]);
   console.log(hoops[1]);
   console.log(hoops[2]);
-  console.log(imgHoop);
 }
   
-      
+while (hoopOpt.length < arraySize)  {
+  var random = Math.floor(Math.random() * hoopMax) + hoopMin;
+  if (hoopOpt.indexOf(random) == -1) {
+    hoopOpt.push(random);
+  }
+}
+//defining hoops random # values 
+var hoop1 = $("#hoop1");
+var hoop2 = $("#hoop2");
+var hoop3 = $("#hoop3");
 
-// hide all alerts 
-$(".winner").hide(".alert");
-$(".loser").hide(".alert");
+hoop1.attr("dataValue", hoopOpt[0]);
+hoop2.attr("dataValue", hoopOpt[1]);
+hoop3.attr("dataValue", hoopOpt[2]);
+
 //game start function 
 var start2 = $(".btn");
 
 /// original idea scrapped *** 
 $(start2).on("click", function(){
     
-      for (i=0; i<hoops.length; i++);
-      setTimeout(function hoop(){
-      hoops[0].setAttribute("src","./assets/images/redhoop.png");
-      hoops[1].setAttribute("src","./assets/images/yellowhoop.png");
-      hoops[2].setAttribute("src","./assets/images/ltbluehoop.png");
-    },1000);
 
     function game(){
       var target = Math.floor(Math.random() * (maxNum - minNum + 1) ) + minNum;
       console.log(target);  
-      $("#tar-score").text("Target: " + target);
+      $("#start-score").text("Target: " + target);
       score = 0;
       $("#user-score").text("Score: " + score);
     };
-//defining hoops random # values 
-hoop1.val(hoopVal);
-hoop2.val(hoopVal);
-hoop3.val(hoopVal);
+
+    
 
 
 });
@@ -163,23 +152,13 @@ gamebb.click(function(){
   Bounce($(gamebb), 1, '400px', 200);
 });
 
- // Keyboard move controls ****** this doesn't work!!!! *** 
+ // Keyboard move controls Left & right 
  $(document).keyup(function(e) {
   switch (e.which) {
-
-  // Move Buttons (Keyboard Down)
-  case 40:
-    gamebb.animate({ top: "+=200px" }, "fast");
-    break;
 
     // Move Buttons (Keyboard Right)
   case 39:
     gamebb.animate({ left: "+=200px" }, "fast");
-    break;
-
-    // Move Buttons (Keyboard Up)
-  case 38:
-    gamebb.animate({ top: "-=200px" }, "fast");
     break;
 
     // Move Buttons (Keyboard Left)
@@ -192,35 +171,20 @@ gamebb.click(function(){
   }
 });
 
-
-// <!--test space key function-->
+// Space Key function , bounce ball to target hoop
       $(document).keydown(function(e) {
         if (e.keyCode == '32') {
           Bounce($(gamebb), 1, '350px', 200);
         }
       });
 
-
-      // $(document).keydown(function(e) {
-      //   if (e.keyCode == '32') {
-      //     $(".ball2").effect("bounce", {times:3}, 300 );
-      //   }
-      // });
-
-    // $( document ).click(function() {
-    //     $( "#ball" ).toggle( "bounce", { times: 3 }, "slow" );
-    //   });
   
   });
 
 
   //<!--game begins--> 
 
-  var hoop1;
-  var hoop2;
-  var hoop3;
-  var score;
-  var target; 
+   
  
   //intialize game function 
   // hoop1 - random value 
