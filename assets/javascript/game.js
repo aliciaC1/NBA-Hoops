@@ -25,7 +25,7 @@ function Bounce(ele, times, distance, speed) {
 
 $(start).on("click", function(){
   Bounce($(ball), 3, '50px', 200);
-  audio.play();
+//   audio.play();
   setTimeout(function(){
     $(location).attr("href", "./game.html");
   }, 10000);
