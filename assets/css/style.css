@@ -51,7 +51,7 @@ h1{
     font-family: Monoton;
     /* font-family: Bungee Inline; */
     text-transform: uppercase;
-    color: #8db1da;
+    color: #ff0606;
     letter-spacing: .5rem;
     margin-top: -108px;
 }
@@ -60,10 +60,13 @@ h1{
     font-family: Codystar;
     font-size: 2rem;
     font-weight: bold;
+    color: lavender;
 }
 
 p{
     font-family: Codystar;
+    color: #f7dc00;
+    font-size: 1.2rem;
 }
 .btn-group-lg>.btn, .btn-lg {
     padding: 3.5rem 7rem;
