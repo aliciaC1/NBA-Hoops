@@ -28,7 +28,7 @@ $(start).on("click", function(){
 //   audio.play();
   setTimeout(function(){
     $(location).attr("href", "./game.html");
-  }, 10000);
+  },1000);
 
 });
 
@@ -150,7 +150,7 @@ function checkScore(){
     losses ++;
     $("#losses").text("Losses: " + losses);
     audioLose.play();
-    alert(" You Lost! Play again by clicking the Start Button!");
+    alert("You Lost! Play again!");
     reset();
   } 
     
