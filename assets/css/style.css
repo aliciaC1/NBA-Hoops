@@ -80,6 +80,7 @@ p{
     font-weight: bold;
     text-transform: uppercase;
     z-index: 2;
+    margin-top: 20px;
 }
 #score_help{
     text-align: center;
