@@ -1,6 +1,6 @@
 #  NBA Hoops
 
-![NBA Hoops](./assets/images/nbahoopslanding.gif)
+![NBA Hoops](./assets/images/nbalandingpg.gif)
 [Play Game](https://aliciac1.github.io/NBA-Hoops/)
 
 ### Concept
@@ -22,7 +22,7 @@
 
 ### Built With 
 > HTML, CSS, jQuery, Bootstrap
-s
+
 
 
 © aliciaC1
