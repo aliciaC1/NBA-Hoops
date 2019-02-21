@@ -135,14 +135,11 @@ p{
 
 
 img#game-ball{
-    bottom: 50px;
-    margin-left: 39%;
-    width: 23%;
+
+    margin-left: 40.5%;
+    height: 329px;
     padding: 0;
     position: relative;
-    /* margin: 200px 0px 0px 0px; */
-    /* padding: 20px;
-    background-color:rgba(200, 54, 54, 0.5); */
     z-index: 4;
 }
 
