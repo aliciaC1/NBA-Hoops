@@ -10,10 +10,10 @@
 ![game screenshot](https://i.imgur.com/wvnudhN.png)
 
 ### How to play
-Use the left and right arrow keys to move the basketball in the right position to shoot the desired hoop. To shoot the ball into the hoop, use the space bar. This game is recommended to be played on desktop.* 
+> Use the left and right arrow keys to move the basketball in the right position to shoot the desired hoop. To shoot the ball into the hoop, use the space bar. This game is recommended to be played on desktop.* 
 
 ### Built With 
-HTML, CSS, jQuery, Bootstrap
+> HTML, CSS, jQuery, Bootstrap
 
 
 
