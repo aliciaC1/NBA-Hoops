@@ -1,5 +1,5 @@
 var ball =   $("#ball");
-var start = $(".btn");
+var start = $(".startplay");
 var audio = new Audio("assets/audio/startgame2.mp3");
 var audioWin = new Audio("assets/audio/wins.mp3");
 var audioLose = new Audio("assets/audio/boo.mp3");
@@ -98,11 +98,14 @@ gamebb.click(function(){
 });
 
 // Space Key function , bounce ball to target hoop
+
 $(document).keydown(function(e) {
   if (e.keyCode == '32') {
-    Bounce($(gamebb), 1, '350px', 200);
+    Bounce($(gamebb), 1, '350px', 100);
     // audioBall2.play();
   }
+
+// Update Score function 
 
   function updateScore (i){
     score = score +hoopOpt[i];
@@ -128,44 +131,7 @@ $(document).keydown(function(e) {
   }
 });
 
-function reset(){
-  target = Math.floor(Math.random() * (maxNum - minNum + 1) ) + minNum;
-  console.log(target);  
-  $("#tar-score").text("Target: " + target);
-  score = 0;
-  $("#user-score").text("Score: " + score);
-  $("#wins").text("Wins: " + wins);
-  $("#losses").text("Losses: " + losses);
-};
-
-function checkScore(){
-
-  if (score === target){
-    wins ++;
-    $("#wins").text("Wins: " + wins);
-    reset();
-    audioWin.play();
-    alert("You Won!");
-  } else if (score > target){
-    losses ++;
-    $("#losses").text("Losses: " + losses);
-    audioLose.play();
-    alert("You Lost! Play again!");
-    reset();
-  } 
-    
-}
-
-
-
-
-// click ball bounce 
-gamebb.click(function(){
-  Bounce($(ball), 3, '150px', 200);
-  // audioBall2.play();
-});
-
-
+// Randomize hoop values 
 
 while (hoopOpt.length < arraySize)  {
   var random = Math.floor(Math.random() * hoopMax) + hoopMin;
@@ -173,7 +139,6 @@ while (hoopOpt.length < arraySize)  {
     hoopOpt.push(random);
   }
 }
-
 
 $("#hoop1").attr("dataValue", hoopOpt[0]);
 $("#hoop2").attr("dataValue", hoopOpt[1]);
@@ -183,58 +148,51 @@ $("#hoop3").attr("dataValue", hoopOpt[2]);
     console.log(hoops[0]);
     console.log(hoops[1]);
     console.log(hoops[2]);
-while (hoopOpt.length < arraySize)  {
-  var random = Math.floor(Math.random() * hoopMax) + hoopMin;
-  if (hoopOpt.indexOf(random) == -1) {
-    hoopOpt.push(random);
-  }
-}
+    
 
-// Space Key function , bounce ball to target hoop
-$(document).keydown(function(e) {
-  if (e.keyCode == '32') {
-    Bounce($(gamebb), 1, '350px', 200);
-    // audioBall2.play();
-  }
-});
+// reset game function 
 
-//game start function 
-var start2 = $(".btn");
-$(start2).on("click", function(){
+function reset(){
+  target = Math.floor(Math.random() * (maxNum - minNum + 1) ) + minNum;
+  console.log(target);  
+  $("#tar-score").text("Target: " + target);
 
-//defining hoops random # values 
   score = 0;
   percent= 0;
-    $(".progress-bar").text(score);
-    $(".progress-bar").attr("style", "width: "+ percent);
+  $("#user-score").text("Score: " + score);
+  $("#wins").text("Wins: " + wins);
+  $("#losses").text("Losses: " + losses);
+  $(".progress-bar").text(score);
+  $(".progress-bar").attr("style", "width: "+ percent);
 
-
-while (hoopOpt.length < arraySize)  {
-  var random = Math.floor(Math.random() * hoopMax) + hoopMin;
-  if (hoopOpt.indexOf(random) == -1) {
-    hoopOpt.push(random);
+  while (hoopOpt.length < arraySize)  {
+    var random = Math.floor(Math.random() * hoopMax) + hoopMin;
+    if (hoopOpt.indexOf(random) == -1) {
+      hoopOpt.push(random);
+    }
   }
+
+};
+
+// Score Keeper + reset game alerts
+function checkScore(){
+
+  if (score === target){
+    wins ++;
+    $("#wins").text("Wins: " + wins);
+    audioWin.play();
+    alert("You Won!");
+    reset();
+  } else if (score > target){
+    losses ++;
+    $("#losses").text("Losses: " + losses);
+    audioLose.play();
+    alert("You Lost! Play again!");
+    reset();
+  } 
+    
 }
-$("#hoop1").attr("dataValue", hoopOpt[0]);
-$("#hoop2").attr("dataValue", hoopOpt[1]);
-$("#hoop3").attr("dataValue", hoopOpt[2]);
-
-  
-    
-
-
-    
-});
-
-
-
-
-
-
-   
-  
-  
-  
+ 
   });
 
 
